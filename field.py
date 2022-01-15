@@ -4,7 +4,8 @@ from cell import Cell
 
 from itertools import product
 from typing import List, Iterator
-from random import choice
+from random import choice, seed
+from time import time
 from copy import deepcopy
 
 
@@ -26,6 +27,7 @@ class Field:
         return previous_state
 
     def randomize(self) -> None:
+        seed(time)
         for _ in range(self.__rows_num):
             row: List[Cell] = []
 
