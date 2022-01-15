@@ -37,10 +37,10 @@ class Field:
 
     def next_state(self) -> List[List[Cell]]:
         new_field = deepcopy(self.__field)
-        neighbours = 0
 
         for x in range(self.__rows_num):
             for y in range(self.__cols_num):
+                neighbours = 0
                 for offset_x, offset_y in product(range(-1, 2), range(-1, 2)):
                     if 0 <= x + offset_x < self.__rows_num and 0 <= y + offset_y < self.__cols_num:
                         neighbours += int(self.__field[x + offset_x][y + offset_y].get_value())
@@ -53,6 +53,4 @@ class Field:
                 else:
                     if neighbours == 3:
                         new_field[x][y].set_value(True)
-
-                neighbours = 0
         return new_field

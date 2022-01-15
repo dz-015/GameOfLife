@@ -4,12 +4,11 @@ from pprint import pprint
 from time import sleep
 import os
 
-# for windows
-if os.name == 'nt':
+
+if os.name == 'nt':  # for windows
     def clear() -> None:
         os.system('cls')
-# for mac and linux aka posix
-else:
+else:  # for mac and linux aka posix
     def clear() -> None:
         os.system('clear')
 
